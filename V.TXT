@@ -1,0 +1,432 @@
+
+
+  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+  <button class="btn btn- btn-outline-dark me-md-2" type="button">𝕃𝕆𝔾𝕀ℕ</button>
+  <button class="btn btn- btn-outline-dark" type="button">𝕃𝕆𝔾𝕆𝕌𝕋</button>
+</div>
+   
+
+
+
+   # LeetCode-Style Question System For CodeArena
+
+You need 3 main parts to create a real coding practice platform like LeetCode:
+
+---
+
+# 1. QUESTION DATABASE
+
+Each question should contain:
+
+* id
+* title
+* difficulty
+* description
+* examples
+* constraints
+* starter code
+* solution
+* test cases
+* tags
+* XP reward
+
+---
+
+# Example Question Object (JavaScript)
+
+```js
+const questions = [
+
+  {
+    id: 1,
+    title: "Two Sum",
+    difficulty: "Easy",
+    xp: 10,
+    tags: ["Array", "HashMap"],
+
+    description: `
+      Given an array of integers nums and an integer target,
+      return indices of the two numbers such that they add up to target.
+    `,
+
+    example: `
+      Input: nums = [2,7,11,15], target = 9
+      Output: [0,1]
+    `,
+
+    constraints: `
+      2 <= nums.length <= 10^4
+    `,
+
+    starterCode: `
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+
+    }
+}
+    `,
+
+    solution: `
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+
+        for(int i = 0; i < nums.length; i++) {
+
+            for(int j = i + 1; j < nums.length; j++) {
+
+                if(nums[i] + nums[j] == target) {
+                    return new int[]{i, j};
+                }
+
+            }
+        }
+
+        return new int[]{};
+    }
+}
+    `
+  },
+
+  {
+    id: 2,
+    title: "Palindrome Number",
+    difficulty: "Easy",
+    xp: 15,
+    tags: ["Math"],
+
+    description: `
+      Given an integer x, return true if x is palindrome.
+    `,
+
+    example: `
+      Input: 121
+      Output: true
+    `,
+
+    starterCode: `
+class Solution {
+    public boolean isPalindrome(int x) {
+
+    }
+}
+    `,
+
+    solution: `
+class Solution {
+    public boolean isPalindrome(int x) {
+
+        int original = x;
+        int reverse = 0;
+
+        while(x > 0) {
+
+            reverse = reverse * 10 + x % 10;
+            x /= 10;
+
+        }
+
+        return original == reverse;
+    }
+}
+    `
+  },
+
+  {
+    id: 3,
+    title: "FizzBuzz",
+    difficulty: "Easy",
+    xp: 10,
+    tags: ["Math"],
+
+    description: `
+      Return answer string array from 1 to n.
+    `,
+
+    example: `
+      Input: n = 5
+      Output: [1,2,Fizz,4,Buzz]
+    `,
+
+    starterCode: `
+class Solution {
+    public List<String> fizzBuzz(int n) {
+
+    }
+}
+    `,
+
+    solution: `
+class Solution {
+    public List<String> fizzBuzz(int n) {
+
+        List<String> result = new ArrayList<>();
+
+        for(int i = 1; i <= n; i++) {
+
+            if(i % 3 == 0 && i % 5 == 0)
+                result.add("FizzBuzz");
+
+            else if(i % 3 == 0)
+                result.add("Fizz");
+
+            else if(i % 5 == 0)
+                result.add("Buzz");
+
+            else
+                result.add(String.valueOf(i));
+        }
+
+        return result;
+    }
+}
+    `
+  }
+];
+```
+
+---
+
+# 2. QUESTION CATEGORIES
+
+You should organize questions like this:
+
+## Easy
+
+* Two Sum
+* FizzBuzz
+* Palindrome Number
+* Reverse String
+* Valid Parentheses
+
+## Medium
+
+* Longest Substring
+* 3Sum
+* Group Anagrams
+* Binary Tree Level Order
+
+## Hard
+
+* Median of Two Sorted Arrays
+* Merge K Sorted Lists
+* Trapping Rain Water
+
+---
+
+# 3. PROBLEM LIST PAGE
+
+Your question list page should contain:
+
+* Search bar
+* Difficulty filter
+* XP points
+* Solved status
+* Tags
+* Pagination
+
+---
+
+# Example Table Design
+
+| Status | Title         | Difficulty | XP |
+| ------ | ------------- | ---------- | -- |
+| ✅      | Two Sum       | Easy       | 10 |
+| 🔥     | 3Sum          | Medium     | 25 |
+| ⭐      | Merge K Lists | Hard       | 50 |
+
+---
+
+# 4. HOW LEETCODE WORKS
+
+## Frontend
+
+Shows:
+
+* Question
+* Code editor
+* Submit button
+* Test cases
+
+## Backend
+
+Receives:
+
+* User code
+* Question ID
+
+Then:
+
+* Compiles code
+* Runs test cases
+* Returns output
+
+---
+
+# 5. BACKEND STRUCTURE (Spring Boot)
+
+## Tables
+
+### users
+
+```sql
+CREATE TABLE users(
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  username VARCHAR(100),
+  email VARCHAR(100),
+  password VARCHAR(255),
+  xp INT DEFAULT 0
+);
+```
+
+---
+
+### questions
+
+```sql
+CREATE TABLE questions(
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  title VARCHAR(255),
+  difficulty VARCHAR(50),
+  description TEXT,
+  starter_code TEXT,
+  solution TEXT
+);
+```
+
+---
+
+### submissions
+
+```sql
+CREATE TABLE submissions(
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  user_id INT,
+  question_id INT,
+  code TEXT,
+  status VARCHAR(50)
+);
+```
+
+---
+
+# 6. BEST FEATURES TO ADD
+
+## Basic Features
+
+* Daily challenges
+* XP system
+* Leaderboards
+* Profile levels
+* Achievements
+
+---
+
+## Advanced Features
+
+* VS coding battle
+* Multiplayer coding
+* AI hints
+* Live contest mode
+* Streak rewards
+* Contest timer
+
+---
+
+# 7. WHERE TO GET QUESTIONS
+
+You can:
+
+## Option 1
+
+Create your own manually.
+
+---
+
+## Option 2
+
+Practice from:
+
+* LeetCode
+* HackerRank
+* GeeksForGeeks
+* Codeforces
+
+Do not directly copy premium content.
+
+---
+
+# 8. BEST STARTING PLAN
+
+## First Build
+
+* Login page
+* Homepage
+* Question list
+* Single coding page
+* Basic code editor
+* MySQL database
+
+---
+
+## Then Add
+
+* XP
+* Leaderboards
+* User profiles
+* Submission history
+
+---
+
+## Finally Add
+
+* AI features
+* Multiplayer battles
+* Live contests
+* Achievements
+
+---
+
+# Recommended Folder Structure
+
+```text
+project/
+│
+├── frontend/
+│   ├── homepage.html
+│   ├── problems.html
+│   ├── challenge.html
+│   ├── leaderboard.html
+│   └── profile.html
+│
+├── backend/
+│   ├── controller/
+│   ├── service/
+│   ├── repository/
+│   └── model/
+│
+└── database/
+    └── schema.sql
+```
+
+---
+
+# Final Goal
+
+Your project can become:
+
+* Gaming coding platform
+* Resume project
+* Portfolio project
+* Real startup idea
+* Full-stack practice project
+
+with:
+
+* HTML
+* CSS
+* Bootstrap
+* JavaScript
+* Spring Boot
+* MySQL
+* JWT Authentication
+* AI features later

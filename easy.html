@@ -1,0 +1,211 @@
+
+      },
+
+      countdigits: {
+        difficulty: "EASY",
+        title: "Count Digits",
+        description: `
+    Count the number of digits in the given number.
+    `,
+        example: `
+      <p><strong>Input:</strong> 12345</p>
+      <p><strong>Output:</strong> 5</p>
+    `,
+        answer: `
+let num = 12345;
+
+let count = String(num).length;
+
+console.log(count);
+    `,
+        keyword: "String(num).length"
+      },
+
+      swapnumbers: {
+        difficulty: "EASY",
+        title: "Swap Two Numbers",
+        description: `
+    Swap the values of two numbers.
+    `,
+        example: `
+      <p><strong>Input:</strong> a = 5, b = 10</p>
+      <p><strong>Output:</strong> a = 10, b = 5</p>
+    `,
+        answer: `
+let a = 5;
+let b = 10;
+
+[a, b] = [b, a];
+
+console.log("a =", a);
+console.log("b =", b);
+    `,
+        keyword: "a = 10"
+      },
+
+      smallestoftwo: {
+        difficulty: "EASY",
+        title: "Smallest of Two Numbers",
+        description: `
+    Find the smaller number among two given numbers.
+    `,
+        example: `
+      <p><strong>Input:</strong> 8 and 3</p>
+      <p><strong>Output:</strong> 3</p>
+    `,
+        answer: `
+let a = 8;
+let b = 3;
+
+if (a < b) {
+  console.log(a);
+} else {
+  console.log(b);
+}
+    `,
+        keyword: "a < b"
+      },
+
+      minutestoseconds: {
+        difficulty: "EASY",
+        title: "Minutes to Seconds",
+        description: `
+    Convert minutes into seconds.
+    `,
+        example: `
+      <p><strong>Input:</strong> 5</p>
+      <p><strong>Output:</strong> 300</p>
+    `,
+        answer: `
+let minutes = 5;
+
+let seconds = minutes * 60;
+
+console.log(seconds);
+    `,
+        keyword: "* 60"
+      },
+
+      positivenegativezero: {
+        difficulty: "EASY",
+        title: "Positive, Negative or Zero",
+        description: `
+    Check whether the given number is positive, negative, or zero.
+    `,
+        example: `
+      <p><strong>Input:</strong> -4</p>
+      <p><strong>Output:</strong> Negative</p>
+    `,
+        answer: `
+let num = -4;
+
+if (num > 0) {
+  console.log("Positive");
+} else if (num < 0) {
+  console.log("Negative");
+} else {
+  console.log("Zero");
+}
+    `,
+        keyword: "Negative"
+      },
+
+      removespaces: {
+        difficulty: "EASY",
+        title: "Remove Spaces",
+        description: `
+    Remove all spaces from the given string.
+    `,
+        example: `
+      <p><strong>Input:</strong> hello world</p>
+      <p><strong>Output:</strong> helloworld</p>
+    `,
+        answer: `
+let str = "hello world";
+
+let result = str.split(" ").join("");
+
+console.log(result);
+    `,
+        keyword: "split(\" \").join(\"\")"
+      },
+
+      stringlength: {
+        difficulty: "EASY",
+        title: "String Length",
+        description: `
+    Find the length of the given string.
+    `,
+        example: `
+      <p><strong>Input:</strong> hello</p>
+      <p><strong>Output:</strong> 5</p>
+    `,
+        answer: `
+let str = "hello";
+
+console.log(str.length);
+    `,
+        keyword: "length"
+      },
+
+      cubeofnumber: {
+        difficulty: "EASY",
+        title: "Cube of a Number",
+        description: `
+    Find the cube of the given number.
+    `,
+        example: `
+      <p><strong>Input:</strong> 3</p>
+      <p><strong>Output:</strong> 27</p>
+    `,
+        answer: `
+let num = 3;
+
+let cube = num * num * num;
+
+console.log(cube);
+    `,
+        keyword: "cube"
+      },
+
+      remainder: {
+        difficulty: "EASY",
+        title: "Find Remainder",
+        description: `
+    Find the remainder when one number is divided by another.
+    `,
+        example: `
+      <p><strong>Input:</strong> 10 and 3</p>
+      <p><strong>Output:</strong> 1</p>
+    `,
+        answer: `
+let a = 10;
+let b = 3;
+
+let rem = a % b;
+
+console.log(rem);
+    `,
+        keyword: "%"
+      },
+
+      celsiustofahrenheit: {
+        difficulty: "EASY",
+        title: "Celsius to Fahrenheit",
+        description: `
+    Convert temperature from Celsius to Fahrenheit.
+    `,
+        example: `
+      <p><strong>Input:</strong> 0</p>
+      <p><strong>Output:</strong> 32</p>
+    `,
+        answer: `
+let celsius = 0;
+
+let fahrenheit = (celsius * 9 / 5) + 32;
+
+console.log(fahrenheit);
+    `,
+        keyword: "9 / 5"
+      }
+    };

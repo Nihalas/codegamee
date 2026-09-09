@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CODEGAME</title>
+    <link rel="shortcut icon" href="./image.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<nav class="navbar navbar-expand-lg navbar-dark">
+
+    <div class="container-fluid">
+
+      <a class="navbar-brand" href="#">
+        ᑕOᗪEGᗩᗰE
+      </a>
+
+      <button class="navbar-toggler" 
+              type="button" 
+              data-bs-toggle="collapse" 
+              data-bs-target="#navbarContent">
+
+        <span class="navbar-toggler-icon"></span>
+
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarContent">
+
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+
+          <li class="nav-item">
+            <a class="nav-link active" href="./web.html">HOME</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="./home1.html">CHALLENGES</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="./leaderboard.html">LEADERBOARD</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="./aboutus.html">ABOUTUS</a>
+          </li>
+
+        </ul>
+
+        <div class="button-group d-lg-flex">
+
+          <a href="./login.html" class="custom-btn">
+            LOGIN
+          </a>
+
+          <a href="./register.html" class="custom-btn">
+            REGISTER
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </nav>
+
+  <body>
+<div class="stars"></div> <br> <br>
+
+
+<section class="about-section">
+
+    <div class="container">
+
+        <h1 class="about-title">About CODEGAME</h1>
+
+        <p class="about-text">
+            CODEGAME is an innovative coding platform designed for passionate developers,
+            beginners, and problem solvers who want to improve their programming skills
+            through exciting challenges and real-world coding battles. Our mission is to
+            create a fun, competitive, and creative environment where users can practice
+            coding, track their progress, climb leaderboards, and become confident
+            programmers. Whether you are starting your coding journey or preparing for
+            technical interviews, CODEGAME provides an engaging experience with interactive
+            challenges, modern UI, and a gamer-style atmosphere that makes learning coding
+            more enjoyable than ever.
+        </p>
+
+    </div>
+
+</section>
+ <footer >
+
+
+  
+        © 2026 CodeGame
+
+  </footer>
+  </body></html>
+
+<style>
+
+    body{
+        background: #0f172a;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .about-section{
+        padding: 80px 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .container{
+        max-width: 900px;
+        background: rgba(255,255,255,0.05);
+        padding: 50px;
+        border-radius: 20px;
+        box-shadow: 0 0 25px rgba(0,0,0,0.4);
+        backdrop-filter: blur(10px);
+    }
+
+    .about-title{
+        color: #00f5ff;
+        text-align: center;
+        font-size: 45px;
+        margin-bottom: 30px;
+        text-shadow: 0 0 10px #00f5ff;
+    }
+
+    .about-text{
+        color: white;
+        font-size: 20px;
+        line-height: 1.9;
+        text-align: justify;
+    }
+
+    @media(max-width:768px){
+
+        .container{
+            padding: 30px;
+        }
+
+        .about-title{
+            font-size: 35px;
+        }
+
+        .about-text{
+            font-size: 17px;
+        }
+
+    }
+      body {
+  background: black;
+}
+
+ .navbar{
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 15px 20px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+
+    .navbar-brand{
+      color: #00f5ff !important;
+      font-size: 28px;
+      font-weight: bold;
+      letter-spacing: 2px;
+      transition: 0.3s;
+    }
+
+    .navbar-brand:hover{
+      transform: scale(1.05);
+      color: white !important;
+      text-shadow: 0 0 10px #00f5ff;
+    }
+
+    .nav-link{
+      color: white !important;
+      margin: 0 10px;
+      font-size: 18px;
+      position: relative;
+      transition: 0.3s;
+    }
+
+    .nav-link::after{
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -5px;
+      width: 0%;
+      height: 2px;
+      background: #00f5ff;
+      transition: 0.3s;
+    }
+
+    .nav-link:hover::after{
+      width: 100%;
+    }
+
+    .nav-link:hover{
+      color: #00f5ff !important;
+      transform: translateY(-2px);
+    }
+
+    /* BUTTONS */
+
+    .custom-btn{
+      border: 2px solid #00f5ff;
+      color: white;
+      padding: 8px 18px;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: 0.4s;
+      margin-left: 10px;
+      font-weight: bold;
+    }
+
+    .custom-btn:hover{
+      background: #00f5ff;
+      color: black;
+      box-shadow: 0 0 15px #00f5ff;
+    }
+
+    /* MOBILE */
+
+    .navbar-toggler{
+      border: none;
+      outline: none;
+      box-shadow: none !important;
+    }
+
+    .navbar-toggler-icon{
+      filter: invert(1);
+    }
+
+    @media(max-width: 991px){
+
+      .navbar-collapse{
+        background: #111827;
+        padding: 20px;
+        border-radius: 15px;
+        margin-top: 15px;
+        text-align: center;
+      }
+
+      .nav-link{
+        margin: 15px 0;
+      }
+
+      .button-group{
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 15px;
+      }
+
+      .custom-btn{
+        margin-left: 0;
+      }
+
+    }
+
+
+.stars {
+  width: 100%;
+  height: 100%;
+  background: url('https://www.transparenttextures.com/patterns/stardust.png');
+  animation: moveStars 50s linear infinite;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+@keyframes moveStars {
+  from { background-position: 0 0; }
+  to { background-position: 1000px 1000px; }
+}
+ footer{
+      text-align:center;
+      padding:30px;
+      border-top:1px solid rgba(255,255,255,0.08);
+      margin-top:50px;
+      color:#94b8b1;
+    }
+   
+
+
+</style>

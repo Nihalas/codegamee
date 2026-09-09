@@ -1,0 +1,1253 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>CODEGAME - Challenges</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      background:#000;
+      color:white;
+      font-family:Arial, Helvetica, sans-serif;
+      overflow-x:hidden;
+    }
+
+    /* STARS */
+
+    .stars{
+      width:100%;
+      height:100%;
+      background:url('https://www.transparenttextures.com/patterns/stardust.png');
+      position:fixed;
+      top:0;
+      left:0;
+      z-index:-1;
+      animation:moveStars 60s linear infinite;
+    }
+
+    @keyframes moveStars{
+      from{
+        background-position:0 0;
+      }
+
+      to{
+        background-position:1000px 1000px;
+      }
+    }
+
+    /* NAVBAR */
+
+    .navbar{
+      background:rgba(15,23,42,0.95);
+      backdrop-filter:blur(10px);
+      padding:15px 20px;
+    }
+
+    .navbar-brand{
+      color:#00ffff !important;
+      font-size:28px;
+      font-weight:bold;
+      letter-spacing:2px;
+    }
+
+    .nav-link{
+      color:white !important;
+      margin:0 10px;
+      transition:0.3s;
+    }
+
+    .nav-link:hover{
+      color:#00ffff !important;
+    }
+
+    .custom-btn{
+      border:2px solid #00ffff;
+      color:white;
+      padding:8px 18px;
+      border-radius:30px;
+      text-decoration:none;
+      transition:0.3s;
+      margin-left:10px;
+    }
+
+    .custom-btn:hover{
+      background:#00ffff;
+      color:black;
+      box-shadow:0 0 15px #00ffff;
+    }
+
+    /* HEADER */
+
+    .header{
+      text-align:center;
+      padding:60px 20px 30px;
+    }
+
+    .header h1{
+      font-size:70px;
+      color:#00ffff;
+      text-shadow:0 0 15px #00ffff;
+    }
+
+    .header p{
+      color:#cbd5e1;
+      margin-top:15px;
+      font-size:18px;
+    }
+
+    /* SECTION */
+
+    .section{
+      padding:40px 60px;
+    }
+
+    .section-title{
+      font-size:38px;
+      margin-bottom:35px;
+      color:#00ffff;
+    }
+
+    .problem-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      gap:30px;
+    }
+
+    /* CARD */
+
+    .problem-card{
+      background:rgba(255,255,255,0.05);
+      border:1px solid rgba(255,255,255,0.1);
+      border-radius:20px;
+      padding:30px;
+      backdrop-filter:blur(10px);
+      transition:0.3s;
+    }
+
+    .problem-card:hover{
+      transform:translateY(-10px);
+      box-shadow:0 0 20px rgba(0,255,255,0.3);
+    }
+
+    .difficulty{
+      display:inline-block;
+      padding:8px 16px;
+      border-radius:20px;
+      margin-bottom:20px;
+      font-size:14px;
+      font-weight:bold;
+    }
+
+    .easy{
+      background:#16a34a;
+    }
+
+    .medium{
+      background:#f59e0b;
+    }
+
+    .hard{
+      background:#dc2626;
+    }
+
+    .problem-card h3{
+      font-size:24px;
+      margin-bottom:15px;
+    }
+
+    .problem-card p{
+      color:#cbd5e1;
+      line-height:1.7;
+      margin-bottom:25px;
+    }
+
+    .solve-btn{
+      width:100%;
+      padding:14px;
+      border:none;
+      border-radius:12px;
+      background:#00ffff;
+      color:black;
+      font-weight:bold;
+      transition:0.3s;
+    }
+
+    .solve-btn:hover{
+      transform:scale(1.03);
+      box-shadow:0 0 20px #00ffff;
+    }
+
+    .solve-btn a{
+      text-decoration:none;
+      color:black;
+      display:block;
+    }
+
+    footer{
+      text-align:center;
+      padding:30px;
+      color:#94a3b8;
+      margin-top:50px;
+      border-top:1px solid rgba(255,255,255,0.1);
+    }
+
+    @media(max-width:768px){
+
+      .header h1{
+        font-size:45px;
+      }
+
+      .section{
+        padding:30px 20px;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <div class="stars"></div>
+
+  <!-- NAVBAR -->
+
+  <nav class="navbar navbar-expand-lg navbar-dark">
+
+    <div class="container-fluid">
+
+      <a class="navbar-brand" href="#">
+        ᑕOᗪEGᗩᗰE
+      </a>
+
+      <button class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarContent">
+
+        <span class="navbar-toggler-icon"></span>
+
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarContent">
+
+        <ul class="navbar-nav mx-auto">
+
+          <li class="nav-item">
+            <a class="nav-link" href="./web.html">HOME</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link active" href="./home1.html">CHALLENGES</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="./leaderboard.html">LEADERBOARD</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="./aboutus.html">ABOUT US</a>
+          </li>
+
+        </ul>
+
+        <div>
+
+          <a href="./login.html" class="custom-btn">
+            LOGIN
+          </a>
+
+          <a href="./register.html" class="custom-btn">
+            REGISTER
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </nav>
+
+  <!-- HEADER -->
+
+  <div class="header">
+
+    <h1>CODING CHALLENGES</h1>
+
+    <p>
+      Solve Easy, Medium and Hard coding problems
+    </p>
+
+  </div>
+
+  <!-- EASY -->
+
+  <section class="section">
+
+    <h2 class="section-title">
+      🟢 Easy Challenges
+    </h2>
+
+    <div class="problem-grid" id="easyContainer"></div>
+
+  </section>
+
+  <!-- MEDIUM -->
+
+  <section class="section">
+
+    <h2 class="section-title">
+      🟡 Medium Challenges
+    </h2>
+
+    <div class="problem-grid" id="mediumContainer"></div>
+
+  </section>
+
+  <!-- HARD -->
+
+  <section class="section">
+
+    <h2 class="section-title">
+      🔴 Hard Challenges
+    </h2>
+
+    <div class="problem-grid" id="hardContainer"></div>
+
+  </section>
+
+  <footer>
+    © 2026 CODEGAME
+  </footer>
+
+  <script>
+
+    const easyQuestions = [
+
+      {
+        title:"Reverse String",
+        desc:"Reverse the given string and print the output.",
+        link:"./challengs.html?challenge=reverse"
+      },
+
+      {
+        title:"Even or Odd",
+        desc:"Check whether the given number is even or odd.",
+        link:"./challengs.html?challenge=evenodd"
+      },
+
+      {
+        title:"Palindrome Check",
+        desc:"Check whether the given word is palindrome.",
+        link:"./challengs.html?challenge=palindrome"
+      },
+
+      {
+        title:"Largest Number",
+        desc:"Find the largest number in the array.",
+        link:"./challengs.html?challenge=largest"
+      },
+
+      {
+        title:"Smallest Number",
+        desc:"Find the smallest number in the array.",
+        link:"./challengs.html?challenge=smallest"
+      },
+
+      {
+        title:"Swap Numbers",
+        desc:"Swap two numbers using variable.",
+        link:"./challengs.html?challenge=swap"
+      },
+
+      {
+        title:"Count Vowels",
+        desc:"Count vowels in a string.",
+        link:"./challengs.html?challenge=vowels"
+      },
+
+      {
+        title:"Sum of Array",
+        desc:"Find sum of all array elements.",
+        link:"./challengs.html?challenge=sumarray"
+      },
+
+      {
+        title:"Positive or Negative",
+        desc:"Check whether number is positive or negative.",
+        link:"./challengs.html?challenge=positive"
+      },
+
+      {
+        title:"Multiplication Table",
+        desc:"Print multiplication table of a number.",
+        link:"./challengs.html?challenge=table"
+      }
+
+    ];
+
+    const mediumQuestions = [
+
+      {
+        title:"Prime Number",
+        desc:"Check whether given number is prime.",
+        link:"./challengs.html?challenge=prime"
+      },
+
+      {
+        title:"Factorial Finder",
+        desc:"Find factorial of a number.",
+        link:"./challengs.html?challenge=factorial"
+      },
+
+      {
+        title:"Fibonacci Series",
+        desc:"Generate fibonacci sequence.",
+        link:"./challengs.html?challenge=fibonacci"
+      },
+
+      {
+        title:"Armstrong Number",
+        desc:"Check whether number is armstrong.",
+        link:"./challengs.html?challenge=armstrong"
+      },
+
+      {
+        title:"Anagram Check",
+        desc:"Check whether strings are anagram.",
+        link:"./challengs.html?challenge=anagram"
+      },
+
+      {
+        title:"Remove Duplicates",
+        desc:"Remove duplicate elements from array.",
+        link:"./challengs.html?challenge=duplicate"
+      },
+
+      {
+        title:"Second Largest",
+        desc:"Find second largest element in array.",
+        link:"./challengs.html?challenge=secondlargest"
+      },
+
+      {
+        title:"Array Rotation",
+        desc:"Rotate array elements.",
+        link:"./challengs.html?challenge=rotate"
+      },
+
+      {
+        title:"Count Words",
+        desc:"Count total words in sentence.",
+        link:"./challengs.html?challenge=words"
+      },
+
+      {
+        title:"Linear Search",
+        desc:"Implement linear search algorithm.",
+        link:"./challengs.html?challenge=linear"
+      }
+
+    ];
+
+    const hardQuestions = [
+
+      {
+        title:"Binary Search",
+        desc:"Implement binary search efficiently.",
+        link:"./challengs.html?challenge=binary"
+      },
+
+      {
+        title:"Sorting Algorithm",
+        desc:"Sort array using optimized method.",
+        link:"./challengs.html?challenge=sorting"
+      },
+
+      {
+        title:"Matrix Rotation",
+        desc:"Rotate matrix clockwise.",
+        link:"./challengs.html?challenge=matrix"
+      },
+
+      {
+        title:"Merge Sort",
+        desc:"Implement merge sort algorithm.",
+        link:"./challengs.html?challenge=merge"
+      },
+
+      {
+        title:"Quick Sort",
+        desc:"Implement quick sort algorithm.",
+        link:"./challengs.html?challenge=quick"
+      },
+
+      {
+        title:"Linked List",
+        desc:"Create linked list operations.",
+        link:"./challengs.html?challenge=linkedlist"
+      },
+
+      {
+        title:"Stack Implementation",
+        desc:"Implement stack using array.",
+        link:"./challengs.html?challenge=stack"
+      },
+
+      {
+        title:"Queue Implementation",
+        desc:"Implement queue operations.",
+        link:"./challengs.html?challenge=queue"
+      },
+
+      {
+        title:"Tree Traversal",
+        desc:"Perform preorder tree traversal.",
+        link:"./challengs.html?challenge=tree"
+      },
+
+      {
+        title:"Graph Traversal",
+        desc:"Implement BFS graph traversal.",
+        link:"./challengs.html?challenge=graph"
+      }
+
+    ];
+
+    function createCards(data,containerId,difficultyClass,difficultyText){
+
+      let container = document.getElementById(containerId);
+
+      data.forEach((item)=>{
+
+        container.innerHTML += `
+
+        <div class="problem-card">
+
+          <div class="difficulty ${difficultyClass}">
+            ${difficultyText}
+          </div>
+
+          <h3>${item.title}</h3>
+
+          <p>${item.desc}</p>
+
+          <button class="solve-btn">
+
+            <a href="${item.link}">
+              Solve Challenge
+            </a>
+
+          </button>
+
+        </div>
+
+        `;
+
+      });
+
+    }
+
+    createCards(
+      easyQuestions,
+      "easyContainer",
+      "easy",
+      "EASY"
+    );
+
+    createCards(
+      mediumQuestions,
+      "mediumContainer",
+      "medium",
+      "MEDIUM"
+    );
+
+    createCards(
+      hardQuestions,
+      "hardContainer",
+      "hard",
+      "HARD"
+    );
+
+const data = {
+
+  /* ================= EASY ================= */
+
+  reverse: {
+    difficulty: "EASY",
+    title: "Reverse String",
+    description: "Write a program to reverse the given string.",
+    example: `
+      <p><strong>Input:</strong> hello</p>
+      <p><strong>Output:</strong> olleh</p>
+    `,
+    answer: `
+let str = "hello";
+
+let reversed =
+str.split("").reverse().join("");
+
+console.log(reversed);
+    `
+  },
+
+  evenodd: {
+    difficulty: "EASY",
+    title: "Even or Odd",
+    description: "Determine whether number is even or odd.",
+    example: `
+      <p><strong>Input:</strong> 4</p>
+      <p><strong>Output:</strong> Even</p>
+    `,
+    answer: `
+let num = 4;
+
+if(num % 2 === 0){
+
+ console.log("Even");
+
+}else{
+
+ console.log("Odd");
+}
+    `
+  },
+
+  palindrome: {
+    difficulty: "EASY",
+    title: "Palindrome Check",
+    description: "Check whether word is palindrome.",
+    example: `
+      <p><strong>Input:</strong> madam</p>
+      <p><strong>Output:</strong> Palindrome</p>
+    `,
+    answer: `
+let str = "madam";
+
+let rev =
+str.split("").reverse().join("");
+
+if(str === rev){
+
+ console.log("Palindrome");
+
+}else{
+
+ console.log("Not Palindrome");
+}
+    `
+  },
+
+  largest: {
+    difficulty: "EASY",
+    title: "Largest Number",
+    description: "Find the largest number in array.",
+    example: `
+      <p><strong>Input:</strong> [2,5,9,1]</p>
+      <p><strong>Output:</strong> 9</p>
+    `,
+    answer: `
+let arr = [2,5,9,1];
+
+let max = Math.max(...arr);
+
+console.log(max);
+    `
+  },
+
+  vowels: {
+    difficulty: "EASY",
+    title: "Count Vowels",
+    description: "Count vowels in string.",
+    example: `
+      <p><strong>Input:</strong> hello</p>
+      <p><strong>Output:</strong> 2</p>
+    `,
+    answer: `
+let str = "hello";
+
+let count = 0;
+
+for(let char of str){
+
+ if("aeiou".includes(char)){
+
+   count++;
+ }
+}
+
+console.log(count);
+    `
+  },
+
+  sumarray: {
+    difficulty: "EASY",
+    title: "Sum Array",
+    description: "Find sum of all numbers in array.",
+    example: `
+      <p><strong>Input:</strong> [1,2,3]</p>
+      <p><strong>Output:</strong> 6</p>
+    `,
+    answer: `
+let arr = [1,2,3];
+
+let sum = 0;
+
+for(let num of arr){
+
+ sum += num;
+}
+
+console.log(sum);
+    `
+  },
+
+  swap: {
+    difficulty: "EASY",
+    title: "Swap Numbers",
+    description: "Swap two numbers.",
+    example: `
+      <p><strong>Input:</strong> 5 10</p>
+      <p><strong>Output:</strong> 10 5</p>
+    `,
+    answer: `
+let a = 5;
+let b = 10;
+
+[a,b] = [b,a];
+
+console.log(a,b);
+    `
+  },
+
+  positive: {
+    difficulty: "EASY",
+    title: "Positive or Negative",
+    description: "Check positive or negative number.",
+    example: `
+      <p><strong>Input:</strong> -5</p>
+      <p><strong>Output:</strong> Negative</p>
+    `,
+    answer: `
+let num = -5;
+
+if(num >= 0){
+
+ console.log("Positive");
+
+}else{
+
+ console.log("Negative");
+}
+    `
+  },
+
+  table: {
+    difficulty: "EASY",
+    title: "Multiplication Table",
+    description: "Print multiplication table.",
+    example: `
+      <p><strong>Input:</strong> 5</p>
+      <p><strong>Output:</strong> 5 10 15...</p>
+    `,
+    answer: `
+let num = 5;
+
+for(let i=1; i<=10; i++){
+
+ console.log(num * i);
+}
+    `
+  },
+
+  length: {
+    difficulty: "EASY",
+    title: "String Length",
+    description: "Find length of string.",
+    example: `
+      <p><strong>Input:</strong> hello</p>
+      <p><strong>Output:</strong> 5</p>
+    `,
+    answer: `
+let str = "hello";
+
+console.log(str.length);
+    `
+  },
+
+  /* ================= MEDIUM ================= */
+
+  prime: {
+    difficulty:"MEDIUM",
+    title:"Prime Number",
+    description:"Find whether number is prime.",
+    example: `
+      <p><strong>Input:</strong> 7</p>
+      <p><strong>Output:</strong> Prime</p>
+    `,
+    answer: `
+let num = 7;
+
+let prime = true;
+
+for(let i=2; i<num; i++){
+
+ if(num % i === 0){
+
+   prime = false;
+ }
+}
+
+if(prime){
+
+ console.log("Prime");
+
+}else{
+
+ console.log("Not Prime");
+}
+    `
+  },
+
+  factorial: {
+    difficulty:"MEDIUM",
+    title:"Factorial Finder",
+    description:"Calculate factorial.",
+    example: `
+      <p><strong>Input:</strong> 5</p>
+      <p><strong>Output:</strong> 120</p>
+    `,
+    answer: `
+let num = 5;
+
+let fact = 1;
+
+for(let i=1; i<=num; i++){
+
+ fact *= i;
+}
+
+console.log(fact);
+    `
+  },
+
+  fibonacci: {
+    difficulty:"MEDIUM",
+    title:"Fibonacci Series",
+    description:"Generate fibonacci sequence.",
+    example: `
+      <p><strong>Input:</strong> 5</p>
+      <p><strong>Output:</strong> 0 1 1 2 3</p>
+    `,
+    answer: `
+let n = 5;
+
+let a = 0;
+let b = 1;
+
+console.log(a);
+console.log(b);
+
+for(let i=2; i<n; i++){
+
+ let c = a + b;
+
+ console.log(c);
+
+ a = b;
+ b = c;
+}
+    `
+  },
+
+  armstrong: {
+    difficulty:"MEDIUM",
+    title:"Armstrong Number",
+    description:"Check Armstrong number.",
+    example: `
+      <p><strong>Input:</strong> 153</p>
+      <p><strong>Output:</strong> Armstrong</p>
+    `,
+    answer: `
+let num = 153;
+
+let sum = 0;
+
+let temp = num;
+
+while(temp > 0){
+
+ let digit = temp % 10;
+
+ sum += digit ** 3;
+
+ temp = Math.floor(temp / 10);
+}
+
+console.log(sum === num);
+    `
+  },
+
+  duplicate: {
+    difficulty:"MEDIUM",
+    title:"Remove Duplicates",
+    description:"Remove duplicates from array.",
+    example: `
+      <p><strong>Input:</strong> [1,1,2,3]</p>
+      <p><strong>Output:</strong> [1,2,3]</p>
+    `,
+    answer: `
+let arr = [1,1,2,3];
+
+let unique = [...new Set(arr)];
+
+console.log(unique);
+    `
+  },
+
+  secondlargest: {
+    difficulty:"MEDIUM",
+    title:"Second Largest",
+    description:"Find second largest number.",
+    example: `
+      <p><strong>Input:</strong> [1,5,9,3]</p>
+      <p><strong>Output:</strong> 5</p>
+    `,
+    answer: `
+let arr = [1,5,9,3];
+
+arr.sort((a,b)=>b-a);
+
+console.log(arr[1]);
+    `
+  },
+
+  anagram: {
+    difficulty:"MEDIUM",
+    title:"Anagram Check",
+    description:"Check whether strings are anagram.",
+    example: `
+      <p><strong>Input:</strong> listen silent</p>
+      <p><strong>Output:</strong> True</p>
+    `,
+    answer: `
+let a = "listen";
+let b = "silent";
+
+let x = a.split("").sort().join("");
+let y = b.split("").sort().join("");
+
+console.log(x === y);
+    `
+  },
+
+  missing: {
+    difficulty:"MEDIUM",
+    title:"Missing Number",
+    description:"Find missing number in array.",
+    example: `
+      <p><strong>Input:</strong> [1,2,4,5]</p>
+      <p><strong>Output:</strong> 3</p>
+    `,
+    answer: `
+let arr = [1,2,4,5];
+
+let n = 5;
+
+let total = n * (n+1) / 2;
+
+let sum = arr.reduce((a,b)=>a+b);
+
+console.log(total - sum);
+    `
+  },
+
+  capitalize: {
+    difficulty:"MEDIUM",
+    title:"Capitalize Words",
+    description:"Capitalize first letter.",
+    example: `
+      <p><strong>Input:</strong> hello world</p>
+      <p><strong>Output:</strong> Hello World</p>
+    `,
+    answer: `
+let str = "hello world";
+
+let result = str.split(" ")
+.map(word =>
+word.charAt(0).toUpperCase()
++ word.slice(1))
+.join(" ");
+
+console.log(result);
+    `
+  },
+
+  countwords: {
+    difficulty:"MEDIUM",
+    title:"Count Words",
+    description:"Count words in sentence.",
+    example: `
+      <p><strong>Input:</strong> Hello world</p>
+      <p><strong>Output:</strong> 2</p>
+    `,
+    answer: `
+let str = "Hello world";
+
+let words = str.split(" ");
+
+console.log(words.length);
+    `
+  },
+
+  /* ================= HARD ================= */
+
+  binary: {
+    difficulty:"HARD",
+    title:"Binary Search",
+    description:"Implement binary search.",
+    example: `
+      <p><strong>Input:</strong> [1,2,3,4],4</p>
+      <p><strong>Output:</strong> Found</p>
+    `,
+    answer: `
+let arr = [1,2,3,4];
+
+let target = 4;
+
+let start = 0;
+let end = arr.length - 1;
+
+while(start <= end){
+
+ let mid =
+ Math.floor((start + end)/2);
+
+ if(arr[mid] === target){
+
+   console.log("Found");
+   break;
+ }
+
+ else if(arr[mid] < target){
+
+   start = mid + 1;
+ }
+
+ else{
+
+   end = mid - 1;
+ }
+}
+    `
+  },
+
+  sorting: {
+    difficulty:"HARD",
+    title:"Sorting Algorithm",
+    description:"Sort array.",
+    example: `
+      <p><strong>Input:</strong> [5,1,3]</p>
+      <p><strong>Output:</strong> [1,3,5]</p>
+    `,
+    answer: `
+let arr = [5,1,3];
+
+arr.sort((a,b)=>a-b);
+
+console.log(arr);
+    `
+  },
+
+  matrix: {
+    difficulty:"HARD",
+    title:"Matrix Rotation",
+    description:"Rotate matrix clockwise.",
+    example: `
+      <p><strong>Input:</strong> [[1,2],[3,4]]</p>
+      <p><strong>Output:</strong> [[3,1],[4,2]]</p>
+    `,
+    answer: `
+let matrix = [
+
+ [1,2],
+ [3,4]
+
+];
+
+let rotated = [
+
+ [3,1],
+ [4,2]
+
+];
+
+console.log(rotated);
+    `
+  },
+
+  mergesort: {
+    difficulty:"HARD",
+    title:"Merge Sort",
+    description:"Implement merge sort.",
+    example: `
+      <p><strong>Input:</strong> [5,2,1]</p>
+      <p><strong>Output:</strong> [1,2,5]</p>
+    `,
+    answer: `
+function mergeSort(arr){
+
+ return arr.sort((a,b)=>a-b);
+}
+
+console.log(
+mergeSort([5,2,1])
+);
+    `
+  },
+
+  linkedlist: {
+    difficulty:"HARD",
+    title:"Linked List",
+    description:"Create linked list node.",
+    example: `
+      <p><strong>Input:</strong> 1 -> 2</p>
+      <p><strong>Output:</strong> Linked List</p>
+    `,
+    answer: `
+class Node{
+
+ constructor(data){
+
+  this.data = data;
+  this.next = null;
+ }
+}
+
+let head = new Node(1);
+
+head.next = new Node(2);
+
+console.log(head);
+    `
+  },
+
+  stack: {
+    difficulty:"HARD",
+    title:"Stack Implementation",
+    description:"Implement stack.",
+    example: `
+      <p><strong>Input:</strong> push(1)</p>
+      <p><strong>Output:</strong> [1]</p>
+    `,
+    answer: `
+let stack = [];
+
+stack.push(1);
+
+stack.push(2);
+
+stack.pop();
+
+console.log(stack);
+    `
+  },
+
+  queue: {
+    difficulty:"HARD",
+    title:"Queue Implementation",
+    description:"Implement queue.",
+    example: `
+      <p><strong>Input:</strong> enqueue(1)</p>
+      <p><strong>Output:</strong> [1]</p>
+    `,
+    answer: `
+let queue = [];
+
+queue.push(1);
+
+queue.push(2);
+
+queue.shift();
+
+console.log(queue);
+    `
+  },
+
+  recursion: {
+    difficulty:"HARD",
+    title:"Recursion",
+    description:"Find factorial using recursion.",
+    example: `
+      <p><strong>Input:</strong> 5</p>
+      <p><strong>Output:</strong> 120</p>
+    `,
+    answer: `
+function fact(n){
+
+ if(n === 1){
+
+  return 1;
+ }
+
+ return n * fact(n-1);
+}
+
+console.log(fact(5));
+    `
+  },
+
+  flatten: {
+    difficulty:"HARD",
+    title:"Flatten Array",
+    description:"Flatten nested array.",
+    example: `
+      <p><strong>Input:</strong> [1,[2,3]]</p>
+      <p><strong>Output:</strong> [1,2,3]</p>
+    `,
+    answer: `
+let arr = [1,[2,3]];
+
+console.log(arr.flat());
+    `
+  },
+
+  hashmap: {
+    difficulty:"HARD",
+    title:"Hash Map",
+    description:"Implement hash map using object.",
+    example: `
+      <p><strong>Input:</strong> name=John</p>
+      <p><strong>Output:</strong> John</p>
+    `,
+    answer: `
+let map = {}; 
+
+map["name"] = "John";
+
+console.log(map["name"]);
+    `
+  }
+
+};
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

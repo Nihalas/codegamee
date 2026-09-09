@@ -1,0 +1,473 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Leaderboard</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+
+    body{
+      background: #0f172a;
+      color: white;
+      font-family: Arial;
+    }
+
+    .leaderboard{
+
+      max-width: 800px;
+
+      margin: 50px auto;
+
+      background: rgba(255,255,255,0.05);
+
+      padding: 30px;
+
+      border-radius: 20px;
+
+      box-shadow: 0 0 25px rgba(0,0,0,0.5);
+
+    }
+
+    h1{
+
+      text-align: center;
+
+      color: #00f5ff;
+
+      margin-bottom: 30px;
+
+    }
+
+    table{
+
+      color: white !important;
+
+    }
+
+    thead{
+
+      background: #00f5ff;
+
+      color: black;
+
+    }
+
+    tbody tr:hover{
+
+      background: rgba(255,255,255,0.08);
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <div class="leaderboard">
+
+    <h1>🏆 CODEGAME LEADERBOARD</h1>
+
+    <table class="table table-dark table-hover">
+
+      <thead>
+
+        <tr>
+
+          <th>Rank</th>
+          <th>Player</th>
+          <th>Score</th>
+
+        </tr>
+
+      </thead>
+
+      <tbody id="leaderboardBody">
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+<script>
+
+fetch("http://localhost:8081/api/user/leaderboard")
+
+.then(response => response.json())
+
+.then(data => {
+
+    let table = document.getElementById("leaderboardBody");
+
+    data.forEach((user, index) => {
+
+        table.innerHTML += `
+
+        <tr>
+
+            <td>#${index + 1}</td>
+
+            <td>${user.name}</td>
+
+            <td>${user.score}</td>
+
+        </tr>
+
+        `;
+
+    });
+
+});
+
+</script>
+
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CODEGAME Leaderboard</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+
+        body{
+
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg,#020617,#0f172a,#111827);
+            font-family: Arial, Helvetica, sans-serif;
+            color: white;
+
+        }
+
+        .leaderboard-container{
+
+            max-width: 950px;
+            margin: 50px auto;
+            padding: 30px;
+
+        }
+
+        .leaderboard-card{
+
+            background: rgba(255,255,255,0.05);
+
+            backdrop-filter: blur(10px);
+
+            border-radius: 25px;
+
+            padding: 30px;
+
+            box-shadow: 0 0 25px rgba(0,0,0,0.5);
+
+        }
+
+        .title{
+
+            text-align: center;
+
+            font-size: 45px;
+
+            font-weight: bold;
+
+            color: #00f5ff;
+
+            margin-bottom: 35px;
+
+            text-shadow: 0 0 20px #00f5ff;
+
+        }
+
+        table{
+
+            color: white !important;
+
+            overflow: hidden;
+
+            border-radius: 15px;
+
+        }
+
+        thead{
+
+            background: #00f5ff;
+
+            color: black;
+
+            font-size: 18px;
+
+        }
+
+        tbody tr{
+
+            transition: 0.3s;
+
+        }
+
+        tbody tr:hover{
+
+            transform: scale(1.01);
+
+            background: rgba(255,255,255,0.08);
+
+        }
+
+        td{
+
+            vertical-align: middle;
+
+            padding: 18px !important;
+
+            font-size: 17px;
+
+        }
+
+        .rank{
+
+            font-weight: bold;
+
+            font-size: 20px;
+
+        }
+
+        .gold{
+
+            color: gold;
+
+        }
+
+        .silver{
+
+            color: silver;
+
+        }
+
+        .bronze{
+
+            color: #cd7f32;
+
+        }
+
+        .score{
+
+            color: #00f5ff;
+
+            font-weight: bold;
+
+        }
+
+        .player{
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+        }
+
+        .avatar{
+
+            width: 45px;
+
+            height: 45px;
+
+            border-radius: 50%;
+
+            background: #00f5ff;
+
+            color: black;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            font-weight: bold;
+
+            font-size: 18px;
+
+        }
+
+        @media(max-width:768px){
+
+            .title{
+
+                font-size: 32px;
+
+            }
+
+            td{
+
+                font-size: 14px;
+
+                padding: 12px !important;
+
+            }
+
+            .avatar{
+
+                width: 35px;
+                height: 35px;
+                font-size: 15px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="leaderboard-container">
+
+        <div class="leaderboard-card">
+
+            <h1 class="title">
+                🏆 CODEGAME LEADERBOARD
+            </h1>
+
+            <div class="table-responsive">
+
+                <table class="table table-dark table-hover align-middle">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>Rank</th>
+                            <th>Player</th>
+                            <th>Score</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="leaderboardBody">
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
+
+<script>
+
+fetch("http://localhost:8081/api/user/leaderboard")
+
+.then(response => response.json())
+
+.then(data => {
+
+    let table = document.getElementById("leaderboardBody");
+
+    table.innerHTML = "";
+
+    data.forEach((user, index) => {
+
+        let medalClass = "";
+
+        let medal = "";
+
+        if(index === 0){
+
+            medalClass = "gold";
+            medal = "🥇";
+
+        }
+
+        else if(index === 1){
+
+            medalClass = "silver";
+            medal = "🥈";
+
+        }
+
+        else if(index === 2){
+
+            medalClass = "bronze";
+            medal = "🥉";
+
+        }
+
+        else{
+
+            medal = "#" + (index + 1);
+
+        }
+
+        table.innerHTML += `
+
+        <tr>
+
+            <td class="rank ${medalClass}">
+                ${medal}
+            </td>
+
+            <td>
+
+                <div class="player">
+
+                    <div class="avatar">
+
+                        ${user.name.charAt(0).toUpperCase()}
+
+                    </div>
+
+                    <div>
+
+                        ${user.name}
+
+                    </div>
+
+                </div>
+
+            </td>
+
+            <td class="score">
+
+                ${user.score} XP
+
+            </td>
+
+        </tr>
+
+        `;
+
+    });
+
+})
+
+.catch(error => {
+
+    console.log(error);
+
+});
+
+</script>
+
+</body>
+
+</html>

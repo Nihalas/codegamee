@@ -1,0 +1,348 @@
+<!-- <!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Creative Navbar</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+
+    body{
+      margin:0;
+      height:100vh;
+      background: linear-gradient(135deg,#0f0c29,#302b63,#24243e);
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .navbar{
+      margin:20px;
+      border-radius:20px;
+      background: rgba(255,255,255,0.08) !important;
+      backdrop-filter: blur(10px);
+      border:1px solid rgba(255,255,255,0.2);
+      padding:15px;
+      box-shadow:0 0 20px rgba(0,0,0,0.3);
+    }
+
+    .navbar-brand{
+      color:#00ffe7 !important;
+      font-size:30px;
+      font-weight:bold;
+      letter-spacing:2px;
+      text-shadow:0 0 10px cyan;
+    }
+
+    .nav-link{
+      color:white !important;
+      margin:0 10px;
+      position:relative;
+      transition:0.3s;
+      font-weight:bold;
+    }
+
+    .nav-link::after{
+      content:'';
+      position:absolute;
+      left:0;
+      bottom:-5px;
+      width:0%;
+      height:3px;
+      background:#00ffe7;
+      transition:0.4s;
+      border-radius:10px;
+    }
+
+    .nav-link:hover::after{
+      width:100%;
+    }
+
+    .nav-link:hover{
+      color:#00ffe7 !important;
+      transform:translateY(-2px);
+    }
+
+    .login-btn{
+      border:none;
+      padding:10px 25px;
+      border-radius:30px;
+      background:linear-gradient(45deg,#00ffe7,#00bfff);
+      color:black;
+      font-weight:bold;
+      transition:0.4s;
+    }
+
+    .login-btn:hover{
+      transform:scale(1.08);
+      box-shadow:0 0 15px cyan;
+    }
+.navbar{
+    background:black !important;
+    border-bottom:2px solid cyan;
+    box-shadow:0 0 20px cyan;
+}
+
+.nav-link{
+    color:white !important;
+    text-transform:uppercase;
+    font-weight:bold;
+}
+
+.nav-link:hover{
+    color:cyan !important;
+    text-shadow:0 0 10px cyan;
+}
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark">
+
+  <div class="container-fluid">
+
+    <a class="navbar-brand" href="#">⚡ CODEGAME</a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navMenu">
+
+      <ul class="navbar-nav mx-auto">
+
+        <li class="nav-item">
+          <a class="nav-link active" href="#">HOME</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#">CHALLENGES</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#">LEADERBOARD</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#">CONTESTS</a>
+        </li>
+
+      </ul>
+
+      <button class="login-btn">LOGIN</button>
+
+    </div>
+
+  </div>
+
+</nav>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Creative Responsive Navbar</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+
+  <style>
+
+    body{
+      margin: 0;
+      background: #0f172a;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    /* NAVBAR */
+
+    .navbar{
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 15px 20px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+
+    .navbar-brand{
+      color: #00f5ff !important;
+      font-size: 28px;
+      font-weight: bold;
+      letter-spacing: 2px;
+      transition: 0.3s;
+    }
+
+    .navbar-brand:hover{
+      transform: scale(1.05);
+      color: white !important;
+      text-shadow: 0 0 10px #00f5ff;
+    }
+
+    .nav-link{
+      color: white !important;
+      margin: 0 10px;
+      font-size: 18px;
+      position: relative;
+      transition: 0.3s;
+    }
+
+    .nav-link::after{
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -5px;
+      width: 0%;
+      height: 2px;
+      background: #00f5ff;
+      transition: 0.3s;
+    }
+
+    .nav-link:hover::after{
+      width: 100%;
+    }
+
+    .nav-link:hover{
+      color: #00f5ff !important;
+      transform: translateY(-2px);
+    }
+
+    /* BUTTONS */
+
+    .custom-btn{
+      border: 2px solid #00f5ff;
+      color: white;
+      padding: 8px 18px;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: 0.4s;
+      margin-left: 10px;
+      font-weight: bold;
+    }
+
+    .custom-btn:hover{
+      background: #00f5ff;
+      color: black;
+      box-shadow: 0 0 15px #00f5ff;
+    }
+
+    /* MOBILE */
+
+    .navbar-toggler{
+      border: none;
+      outline: none;
+      box-shadow: none !important;
+    }
+
+    .navbar-toggler-icon{
+      filter: invert(1);
+    }
+
+    @media(max-width: 991px){
+
+      .navbar-collapse{
+        background: #111827;
+        padding: 20px;
+        border-radius: 15px;
+        margin-top: 15px;
+        text-align: center;
+      }
+
+      .nav-link{
+        margin: 15px 0;
+      }
+
+      .button-group{
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 15px;
+      }
+
+      .custom-btn{
+        margin-left: 0;
+      }
+
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+
+  <nav class="navbar navbar-expand-lg navbar-dark">
+
+    <div class="container-fluid">
+
+      <a class="navbar-brand" href="#">
+        ⚡ CODEGAME
+      </a>
+
+      <button class="navbar-toggler" 
+              type="button" 
+              data-bs-toggle="collapse" 
+              data-bs-target="#navbarContent">
+
+        <span class="navbar-toggler-icon"></span>
+
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarContent">
+
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+
+          <li class="nav-item">
+            <a class="nav-link active" href="./web.html">HOME</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="./home1.html">CHALLENGES</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="./leaderboard.html">LEADERBOARD</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#">BATTLES</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#">PROFILE</a>
+          </li>
+
+        </ul>
+
+        <div class="button-group d-lg-flex">
+
+          <a href="./login.html" class="custom-btn">
+            LOGIN
+          </a>
+
+          <a href="./register.html" class="custom-btn">
+            REGISTER
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </nav>
+
+  <!-- DEMO CONTENT -->
+
+  <div class="container text-center text-white mt-5">
+    <h1>🔥 Welcome to CODEGAME</h1>
+    <p>Creative Coding Arena UI</p>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html> -->

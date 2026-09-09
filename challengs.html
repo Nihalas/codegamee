@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CODEGAME</title>
+  <link rel="shortcut icon" href="./image.png" type="image/x-icon">
+
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      background: black;
+    }
+    .navbar{
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 15px 20px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+
+    .navbar-brand{
+      color: #00f5ff !important;
+      font-size: 28px;
+      font-weight: bold;
+      letter-spacing: 2px;
+      transition: 0.3s;
+    }
+
+    .navbar-brand:hover{
+      transform: scale(1.05);
+      color: white !important;
+      text-shadow: 0 0 10px #00f5ff;
+    }
+
+    .nav-link{
+      color: white !important;
+      margin: 0 10px;
+      font-size: 18px;
+      position: relative;
+      transition: 0.3s;
+    }
+
+    .nav-link::after{
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -5px;
+      width: 0%;
+      height: 2px;
+      background: #00f5ff;
+      transition: 0.3s;
+    }
+
+    .nav-link:hover::after{
+      width: 100%;
+    }
+
+    .nav-link:hover{
+      color: #00f5ff !important;
+      transform: translateY(-2px);
+    }
+
+    /* BUTTONS */
+
+    .custom-btn{
+      border: 2px solid #00f5ff;
+      color: white;
+      padding: 8px 18px;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: 0.4s;
+      margin-left: 10px;
+      font-weight: bold;
+    }
+
+    .custom-btn:hover{
+      background: #00f5ff;
+      color: black;
+      box-shadow: 0 0 15px #00f5ff;
+    }
+
+    /* MOBILE */
+
+    .navbar-toggler{
+      border: none;
+      outline: none;
+      box-shadow: none !important;
+    }
+
+    .navbar-toggler-icon{
+      filter: invert(1);
+    }
+
+    @media(max-width: 991px){
+
+      .navbar-collapse{
+        background: #111827;
+        padding: 20px;
+        border-radius: 15px;
+        margin-top: 15px;
+        text-align: center;
+      }
+
+      .nav-link{
+        margin: 15px 0;
+      }
+
+      .button-group{
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 15px;
+      }
+
+      .custom-btn{
+        margin-left: 0;
+      }
+
+    }
+
+
+    .stars {
+      width: 100%;
+      height: 100%;
+      background: url('https://www.transparenttextures.com/patterns/stardust.png');
+      animation: moveStars 50s linear infinite;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+
+    @keyframes moveStars {
+      from {
+        background-position: 0 0;
+      }
+
+      to {
+        background-position: 1000px 1000px;
+      }
+    }
+
+    form {
+      width: 250px;
+      border-radius: 5px;
+      background-color: rgb(37, 26, 26);
+      color: white;
+    }
+
+    H1 {
+      font-size: 70px;
+      text-shadow: 30px;
+      color: rgb(103, 9, 98);
+    }
+
+    .main {
+      display: grid;
+
+      grid-template-columns: 1fr 1fr;
+
+      gap: 30px;
+
+      padding: 40px 60px;
+    }
+
+    .challenge-card {
+      background: rgba(255, 255, 255, 0.05);
+
+      border: 1px solid rgba(255, 255, 255, 0.08);
+
+      border-radius: 20px;
+
+      padding: 35px;
+
+      backdrop-filter: blur(10px);
+    }
+
+    .challenge-card h2 {
+      color: #00ffff;
+      margin-bottom: 25px;
+      font-size: 30px;
+    }
+
+    .difficulty {
+      display: inline-block;
+
+      background: #16a34a;
+
+      padding: 8px 16px;
+
+      border-radius: 20px;
+
+      margin-bottom: 20px;
+    }
+
+    .problem-title {
+      font-size: 26px;
+      margin-bottom: 20px;
+    }
+
+    .description {
+      color: #cbd5e1;
+      line-height: 1.8;
+      margin-bottom: 25px;
+    }
+
+    .example-box {
+      background: #0f172a;
+
+      padding: 20px;
+
+      border-radius: 12px;
+
+      margin-bottom: 20px;
+    }
+
+    .example-box p {
+      margin: 10px 0;
+      color: #cbd5e1;
+    }
+
+    /* =========================
+       Coding Area
+    ========================== */
+
+    .editor-card {
+      background: rgba(255, 255, 255, 0.05);
+
+      border: 1px solid rgba(255, 255, 255, 0.08);
+
+      border-radius: 20px;
+
+      padding: 30px;
+
+      backdrop-filter: blur(10px);
+    }
+
+    .editor-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      margin-bottom: 20px;
+    }
+
+    .timer {
+      color: #00ffff;
+      font-size: 22px;
+    }
+
+    textarea {
+      width: 100%;
+      height: 300px;
+
+      background: #0f172a;
+      color: #00ffff;
+
+      border: none;
+      outline: none;
+
+      border-radius: 12px;
+
+      padding: 20px;
+
+      font-size: 16px;
+
+      resize: none;
+    }
+
+    /* =========================
+       Buttons
+    ========================== */
+
+    .button-group {
+      display: flex;
+      gap: 20px;
+
+      margin-top: 20px;
+    }
+
+    .btn {
+      flex: 1;
+
+      padding: 15px;
+
+      border: none;
+
+      border-radius: 12px;
+
+      cursor: pointer;
+
+      font-size: 16px;
+      font-weight: bold;
+
+      transition: 0.3s;
+    }
+
+    .run-btn {
+      background: #2563eb;
+      color: white;
+    }
+
+    .run-btn:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 20px #2563eb;
+    }
+
+    .submit-btn {
+      background: #00ffff;
+      color: #050816;
+    }
+
+    .submit-btn:hover {
+      transform: scale(1.03);
+
+      box-shadow:
+        0 0 20px #00ffff;
+    }
+
+    /* =========================
+       Output Box
+    ========================== */
+
+    .output-box {
+      margin-top: 25px;
+
+      background: #0f172a;
+
+      border-radius: 12px;
+
+      padding: 20px;
+    }
+
+    .output-box h3 {
+      color: #00ffff;
+      margin-bottom: 15px;
+    }
+
+    #output {
+      color: #cbd5e1;
+      line-height: 1.8;
+    }
+
+    /* =========================
+       Responsive
+    ========================== */
+
+    @media(max-width:900px) {
+
+      .main {
+        grid-template-columns: 1fr;
+      }
+
+      .navbar {
+        flex-direction: column;
+        gap: 20px;
+      }
+
+    }
+    
+    
+  </style>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-dark">
+
+    <div class="container-fluid">
+
+      <a class="navbar-brand" href="#">
+        ᑕOᗪEGᗩᗰE
+      </a>
+
+      <button class="navbar-toggler" 
+              type="button" 
+              data-bs-toggle="collapse" 
+              data-bs-target="#navbarContent">
+
+        <span class="navbar-toggler-icon"></span>
+
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarContent">
+
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+
+          <li class="nav-item">
+            <a class="nav-link active" href="./web.html">HOME</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="./home1.html">CHALLENGES</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="./leaderboard.html">LEADERBOARD</a>
+          </li>
+
+        
+          
+          <li class="nav-item">
+            <a class="nav-link" href="./aboutus.html">ABOUTUS</a>
+          </li>
+
+        </ul>
+
+        <div class="button-group d-lg-flex">
+
+          <a href="./login.html" class="custom-btn">
+            LOGIN
+          </a>
+
+          <a href="./register.html" class="custom-btn">
+            REGISTER
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </nav>
+
+ 
+  <br><br>
+
+  <section class="main">
+
+    <div class="challenge-card">
+
+      <h2>Daily Challenge</h2>
+
+      <div class="difficulty" id="difficulty">
+        EASY
+      </div>
+
+      <div class="problem-title" id="title">
+        Reverse String
+      </div>
+
+      <div class="description" id="description">
+
+      </div>
+
+      <div class="example-box" id="exampleBox">
+
+      </div>
+
+    </div>
+
+    <div class="editor-card">
+
+      <div class="editor-header">
+
+        <h2>💻 Code Editor</h2>
+
+        <div class="timer">
+          ⏳ <span id="timer">300</span>s
+        </div>
+
+      </div>
+
+      <textarea id="codeInput" placeholder="Type your answer here..."></textarea>
+
+      <div class="button-group">
+
+        <button class="btn run-btn" id="runBtn">
+          Run Code
+        </button>
+
+        <button class="btn submit-btn" id="submitBtn">
+          Submit
+        </button>
+
+        <button class="btn answer-btn" id="answerBtn">
+          Show Answer
+        </button>
+
+      </div>
+
+      <div class="output-box">
+
+        <h3>Output</h3>
+
+        <div id="output">
+          Waiting for execution...
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <script>
+
+    const data = {
+
+      reverse: {
+
+        difficulty: "EASY",
+
+        title: "Reverse String",
+
+        description: `
+    Write a program to reverse the given string.
+    `,
+
+        example: `
+      <p><strong>Input:</strong> hello</p>
+
+      <p><strong>Output:</strong> olleh</p>
+    `,
+
+        answer: `
+let str = "hello";
+
+let reversed =
+str.split("").reverse().join("");
+
+console.log(reversed);
+    `,
+
+        keyword: "olleh"
+      },
+
+      evenodd: {
+
+        difficulty: "EASY",
+
+        title: "Even or Odd",
+
+        description: `
+    Determine whether number is even or odd.
+    `,
+
+        example: `
+      <p><strong>Input:</strong> 4</p>
+
+      <p><strong>Output:</strong> Even</p>
+    `,
+
+        answer: `
+let num = 4;
+
+if(num % 2 === 0){
+
+ console.log("Even");
+
+}else{
+
+ console.log("Odd");
+}
+    `,
+
+        keyword: "even"
+      },
+
+      palindrome: {
+
+        difficulty: "EASY",
+
+        title: "Palindrome Check",
+
+        description: `
+    Check whether word is palindrome.
+    `,
+
+        example: `
+      <p><strong>Input:</strong> madam</p>
+
+      <p><strong>Output:</strong> Palindrome</p>
+    `,
+
+        answer: `
+let str = "madam";
+
+let rev =
+str.split("").reverse().join("");
+
+if(str === rev){
+
+ console.log("Palindrome");
+
+}else{
+
+ console.log("Not Palindrome");
+}
+    `,
+
+        keyword: "palindrome"
+      },
+      prime: {
+
+  difficulty:"MEDIUM",
+
+  title:"Prime Number",
+
+  description:`
+  Find whether the given number is prime or not.
+  `,
+
+  example:`
+    <p><strong>Input:</strong> 7</p>
+
+    <p><strong>Output:</strong> Prime</p>
+  `,
+
+  answer:`
+let num = 7;
+let prime = true;
+
+for(let i=2; i<num; i++){
+
+  if(num % i === 0){
+
+    prime = false;
+  }
+}
+
+if(prime){
+
+ console.log("Prime");
+
+}else{
+
+ console.log("Not Prime");
+}
+  `
+},
+
+factorial: {
+
+  difficulty:"MEDIUM",
+
+  title:"Factorial Finder",
+
+  description:`
+  Calculate factorial of given number.
+  `,
+
+  example:`
+    <p><strong>Input:</strong> 5</p>
+
+    <p><strong>Output:</strong> 120</p>
+  `,
+
+  answer:`
+let num = 5;
+
+let fact = 1;
+
+for(let i=1; i<=num; i++){
+
+ fact = fact * i;
+}
+
+console.log(fact);
+  `
+},
+
+fibonacci: {
+
+  difficulty:"MEDIUM",
+
+  title:"Fibonacci Series",
+
+  description:`
+  Generate fibonacci sequence.
+  `,
+
+  example:`
+    <p><strong>Input:</strong> 5</p>
+
+    <p><strong>Output:</strong> 0 1 1 2 3</p>
+  `,
+
+  answer:`
+let n = 5;
+
+let a = 0;
+let b = 1;
+
+console.log(a);
+console.log(b);
+
+for(let i=2; i<n; i++){
+
+ let c = a + b;
+
+ console.log(c);
+
+ a = b;
+ b = c;
+}
+  `
+},
+
+binary: {
+
+  difficulty:"HARD",
+
+  title:"Binary Search",
+
+  description:`
+  Implement binary search algorithm.
+  `,
+
+  example:`
+    <p><strong>Input:</strong> [1,2,3,4,5], 4</p>
+
+    <p><strong>Output:</strong> Found</p>
+  `,
+
+  answer:`
+let arr = [1,2,3,4,5];
+
+let target = 4;
+
+let start = 0;
+let end = arr.length - 1;
+
+while(start <= end){
+
+ let mid =
+ Math.floor((start + end)/2);
+
+ if(arr[mid] === target){
+
+   console.log("Found");
+   break;
+ }
+
+ else if(arr[mid] < target){
+
+   start = mid + 1;
+ }
+
+ else{
+
+   end = mid - 1;
+ }
+}
+  `
+},
+
+sorting: {
+
+  difficulty:"HARD",
+
+  title:"Sorting Algorithm",
+
+  description:`
+  Sort array using sort method.
+  `,
+
+  example:`
+    <p><strong>Input:</strong> [5,2,1]</p>
+
+    <p><strong>Output:</strong> [1,2,5]</p>
+  `,
+
+  answer:`
+let arr = [5,2,1];
+
+arr.sort((a,b)=>a-b);
+
+console.log(arr);
+  `
+},
+
+matrix: {
+
+  difficulty:"HARD",
+
+  title:"Matrix Rotation",
+
+  description:`
+  Rotate matrix clockwise.
+  `,
+
+  example:`
+    <p><strong>Input:</strong> [[1,2],[3,4]]</p>
+
+    <p><strong>Output:</strong> [[3,1],[4,2]]</p>
+  `,
+
+  answer:`
+let matrix = [
+
+ [1,2],
+ [3,4]
+
+];
+
+let rotated = [
+
+ [3,1],
+ [4,2]
+
+];
+
+console.log(rotated);
+  `
+},
+
+    };
+    
+
+    const params =
+      new URLSearchParams(window.location.search);
+
+    const challenge =
+      params.get("challenge");
+
+    const current =
+      data[challenge] || data.reverse;
+
+    document.getElementById("difficulty")
+      .innerText =
+      current.difficulty;
+
+    document.getElementById("title")
+      .innerText =
+      current.title;
+
+    document.getElementById("description")
+      .innerHTML =
+      current.description;
+
+    document.getElementById("exampleBox")
+      .innerHTML =
+      current.example;
+
+
+    /* TIMER */
+
+    let timeLeft =180;
+
+    const timer =
+      document.getElementById("timer");
+
+    const interval =
+      setInterval(() => {
+
+        timeLeft--;
+
+        timer.innerText = timeLeft;
+
+        if (timeLeft <= 0) {
+
+          clearInterval(interval);
+
+          document.getElementById("output")
+            .innerHTML =
+            "⏰ Time Up!";
+        }
+
+      }, 1000);
+
+
+    /* RUN BUTTON */
+
+    document.getElementById("runBtn")
+      .addEventListener("click", () => {
+
+        let code =
+          document.getElementById("codeInput")
+            .value;
+
+        if (code.trim() === "") {
+
+          document.getElementById("output")
+            .innerHTML =
+            "⚠️ Please enter your code.";
+
+        } else {
+
+          document.getElementById("output")
+            .innerHTML =
+            "✅ Code Executed Successfully!";
+        }
+
+      });
+
+
+
+    /* SUBMIT BUTTON */
+
+   document.getElementById("submitBtn")
+.addEventListener("click", () => {
+
+  let code =
+  document.getElementById("codeInput")
+  .value
+  .toLowerCase();
+
+  /* REVERSE STRING */
+
+  if(challenge === "reverse"){
+
+    if(
+      code.includes("reverse") ||
+      code.includes("split") ||
+      code.includes("join")
+    ){
+
+      document.getElementById("output")
+      .innerHTML =
+      "🏆 Correct Solution Submitted!";
+
+    }else{
+
+      document.getElementById("output")
+      .innerHTML =
+      "❌ Wrong Solution. Try Again!";
+    }
+
+  }
+
+  /* EVEN ODD */
+
+  else if(challenge === "evenodd"){
+
+    if(
+      code.includes("%") &&
+      code.includes("2")
+    ){
+
+      document.getElementById("output")
+      .innerHTML =
+      "🏆 Correct Solution Submitted!";
+
+    }else{
+
+      document.getElementById("output")
+      .innerHTML =
+      "❌ Wrong Solution. Try Again!";
+    }
+
+  }
+
+  /* PALINDROME */
+
+  else if(challenge === "palindrome"){
+
+    if(
+      code.includes("reverse") ||
+      code.includes("===")
+    ){
+
+      document.getElementById("output")
+      .innerHTML =
+      "🏆 Correct Solution Submitted!";
+
+    }else{
+
+      document.getElementById("output")
+      .innerHTML =
+      "❌ Wrong Solution. Try Again!";
+    }
+
+  }
+  else if(challenge === "prime"){
+
+  if(
+    code.includes("%") ||
+    code.includes("prime")
+  ){
+
+    output.innerHTML =
+    "🏆 Correct Solution Submitted!";
+
+  }else{
+
+    output.innerHTML =
+    "❌ Wrong Solution!";
+  }
+}
+
+else if(challenge === "factorial"){
+
+  if(
+    code.includes("fact") ||
+    code.includes("*")
+  ){
+
+    output.innerHTML =
+    "🏆 Correct Solution Submitted!";
+
+  }else{
+
+    output.innerHTML =
+    "❌ Wrong Solution!";
+  }
+}
+
+else if(challenge === "fibonacci"){
+
+  if(
+    code.includes("a+b") ||
+    code.includes("fibonacci")
+  ){
+
+    output.innerHTML =
+    "🏆 Correct Solution Submitted!";
+
+  }else{
+
+    output.innerHTML =
+    "❌ Wrong Solution!";
+  }
+}
+
+else if(challenge === "binary"){
+
+  if(
+    code.includes("mid") ||
+    code.includes("while")
+  ){
+
+    output.innerHTML =
+    "🏆 Correct Solution Submitted!";
+
+  }else{
+
+    output.innerHTML =
+    "❌ Wrong Solution!";
+  }
+}
+
+else if(challenge === "sorting"){
+
+  if(
+    code.includes("sort")
+  ){
+
+    output.innerHTML =
+    "🏆 Correct Solution Submitted!";
+
+  }else{
+
+    output.innerHTML =
+    "❌ Wrong Solution!";
+  }
+}
+
+else if(challenge === "matrix"){
+
+  if(
+    code.includes("matrix") ||
+    code.includes("[")
+  ){
+
+    output.innerHTML =
+    "🏆 Correct Solution Submitted!";
+
+  }else{
+
+    output.innerHTML =
+    "❌ Wrong Solution!";
+  }
+}
+
+});
+
+
+
+    /* SHOW ANSWER */
+
+    document.getElementById("answerBtn")
+      .addEventListener("click", () => {
+
+        document.getElementById("output")
+          .innerHTML = `
+
+<pre>
+${current.answer}
+</pre>
+
+  `;
+
+      });
+
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
